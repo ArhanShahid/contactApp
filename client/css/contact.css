@@ -6,5 +6,8 @@
     border-radius: 0;
 }
 .fontWhite{
-    color: #ffffff;
+    color: #ffffff !important;
+}
+.fontWhite:hover{
+    color: #ffffff !important;
 }
