@@ -1,15 +1,15 @@
 var contactApp = angular.module('contactApp',['ui.router']);
 contactApp.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home/login');
     $stateProvider
         .state('home', {
             url:'/home',
-
             templateUrl: 'partials/home.html',
             controller:'homeController'
         })
         .state('home.logIn',{
+            url:'/login',
             templateUrl: 'partials/logIn.html',
             controller:'logInController'
         })
