@@ -17,6 +17,11 @@ contactApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/signUp.html',
             controller:'signUpController'
         })
+        .state('contact',{
+            url:'/contact',
+            templateUrl: 'partials/contact.html',
+            controller:'contactController'
+        })
 
 });
 
