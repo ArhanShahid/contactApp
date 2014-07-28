@@ -11,6 +11,11 @@
 .fontWhite:hover{
     color: #ffffff !important;
 }
+.alertBox{
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
 .marginTop10{
     margin-top: 10px;
 }
