@@ -16,6 +16,16 @@
     top: 70px;
     right: 10px;
 }
+.editContactBox{
+/*position: absolute;*/
+    top: 20px;
+}
+.listStyleNone{
+    list-style: none;
+}
+.marginN5{
+    margin: -5px;
+}
 .marginTop10{
     margin-top: 10px;
 }
