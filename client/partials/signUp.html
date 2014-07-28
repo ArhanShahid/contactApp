@@ -1,3 +1,19 @@
-<div>
-    <h1>{{logIn}}</h1>
+<div class="marginTop100">
+    <div>
+        <input type="text" class="form-control" placeholder="User Name" ng-model="user.name" required />
+    </div>
+    <div class="marginTop10">
+        <input type="email" class="form-control" placeholder="E-Mail" ng-model="user.email" required />
+    </div>
+    <div class="marginTop10">
+        <input type="date" class="form-control" placeholder="Date Of Birth" ng-model="user.dob" required />
+    </div>
+    <div class="marginTop10">
+        <input type="password" class="form-control" placeholder="Password" ng-model="user.password" required />
+    </div>
+    <div class="marginTop10">
+        <input type="password" class="form-control" placeholder="Confirm Password" ng-model="user.confirmPassword" required />
+    </div>
+    <br/>
+    <input type="button" class="btn btn-primary btn-block" value="SignUp"  ng-click="signUp(user)" />
 </div>
