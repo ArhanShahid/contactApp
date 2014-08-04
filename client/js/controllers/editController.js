@@ -1,20 +1,24 @@
-contactApp.controller('editController',function($scope,editService){
+contactApp.controller('editController',function($scope,editService,alertService,$location){
 
     var edit = editService.getEditObject();
 
+    $scope.editContact = "Edit Contact";
     $scope.editObject = edit;
-//    $scope.edit = {
-//        name:null,
-//        phone:null
-//    };
-//
-//    $scope.edit = function(contact){
-//        $scope.edit = {
-//            name:contact.name,
-//            phone:contact.phone
-//        };
-//    }
 
+    $scope.saveContact = function(contact){
+
+        var contactValid = contact != undefined && contact.name && contact.phone;
+        if(contactValid){
+            console.log('contact');
+            console.log(contact);
+            alertService.show("Contact Saved", "success");
+        }else{
+            alertService.show("Empty Field", "danger");
+        }
+    };
+    $scope.goToContact =function(){
+        $location.path('contact');
+    }
 
 });
 
