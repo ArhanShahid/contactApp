@@ -1,23 +1,11 @@
 <div class="col-md-12">
-    <ul class="list-group">
-        <li class="list-group-item" ng-show="showEdit">
-            <input  type="text" ng-model="edit.name">
-            <input  type="text" ng-model="edit.phone">
-            <div class="btn-group pull-right marginN5">
-                <button type="button" class="btn btn-default">Save</button>
-                <button type="button" class="btn btn-default">Edit</button>
-                <button type="button" class="btn btn-default">Delete</button>
-            </div>
-            <span class="glyphicon "></span>
-        </li>
-    </ul>
-
+    <div class="addContact">
+        <a ui-sref="add" class="btn btn-success btn-sm pull-right">Add Contact</a>
+    </div>
     <ul class="list-group">
         <li ng-repeat="contact in contacts" class="list-group-item">
             {{contact.name}} : {{contact.phone}}
             <span class="glyphicon glyphicon-cog pull-right" ng-click="edit(contact)"></span>
         </li>
     </ul>
-
-
 </div>

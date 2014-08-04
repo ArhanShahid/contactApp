@@ -22,6 +22,16 @@ contactApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/contact.html',
             controller:'contactController'
         })
+        .state('add',{
+            url:'/add',
+            templateUrl: 'partials/add.html',
+            controller:'addController'
+        })
+        .state('edit',{
+            url:'/edit',
+            templateUrl: 'partials/edit.html',
+            controller:'editController'
+        })
 
 });
 

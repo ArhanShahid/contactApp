@@ -1,9 +1,5 @@
-contactApp.controller('contactController',function($scope){
-    $scope.showEdit = false;
-    $scope.edit = {
-        name:null,
-        phone:null
-    };
+contactApp.controller('contactController',function($scope,$location,editService){
+
     $scope.contacts = [
         { name:'A',phone:03330000000},
         { name:'B',phone:03330000001},
@@ -30,15 +26,10 @@ contactApp.controller('contactController',function($scope){
         { name:'X',phone:03330000022},
         { name:'Y',phone:03330000023},
         { name:'Z',phone:03330000024}
-    ]
+    ];
 
     $scope.edit = function(contact){
-        $scope.edit = {
-            name:contact.name,
-            phone:contact.phone
-        };
-        $scope.showEdit = true;
+        editService.setEditObject(contact);
+        $location.path('/edit');
     }
-
-
 });

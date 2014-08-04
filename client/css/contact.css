@@ -16,10 +16,18 @@
     top: 70px;
     right: 10px;
 }
-.editContactBox{
-/*position: absolute;*/
-    top: 20px;
+.glyphicon-cog:hover{
+    color: #6f6f6f;
 }
+.addContact{
+    height: 50px;
+}
+
+/*
+======================================
+              General CSS
+======================================
+*/
 .listStyleNone{
     list-style: none;
 }
