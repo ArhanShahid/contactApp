@@ -9,12 +9,12 @@ contactApp.service('authenticationService',function(){
             return false;
         }
     };
-    var _sugnUp = function(user){
+    var _signUp = function(user){
         return true;
     };
 
     return{
         logIn: _authentication,
-        signUp: _sugnUp
+        signUp: _signUp
     }
 });
