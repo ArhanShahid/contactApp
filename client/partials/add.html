@@ -1,3 +1,11 @@
-<div>
-    {{addContact}}
+<div class="col-md-12">
+    <div class="well paddingBottom55">
+        <h3>{{addContact}}</h3>
+        <input class="marginTop10 form-control" type="text" ng-model="contact.name" placeholder="Enter Name" />
+        <input class="marginTop10 form-control" type="text" ng-model="contact.phone" placeholder="Enter Number" />
+        <div class="marginTop10 btn-group pull-right ">
+            <button type="button" class="btn btn-default" ng-click="saveContact(contact)">Save</button>
+            <button type="button" class="btn btn-default" ng-click="goToContact()">Cancel</button>
+        </div>
+    </div>
 </div>
