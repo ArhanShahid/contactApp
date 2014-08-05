@@ -1,7 +1,7 @@
 {
-    "name"         : "contact App",
+    "name"         : "contactApp",
     "version"      : "0.0.0",
-    "description"  : "Simple contact application.",
+    "description"  : "Simple Contact application.",
     "main"         : "server.js",
     "author"       : "arhan",
     "dependencies" : {

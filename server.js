@@ -16,9 +16,9 @@ app.configure(function() {
 });
 
 // routes ======================================================================
-require('./server/apis/todoapis')(app,mongoose);
+require('./server/apis/contactApis')(app,mongoose);
 require('./server/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
-console.log("Contact App listening on port " + port);
+console.log("App listening on port " + port);
