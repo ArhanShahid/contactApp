@@ -3,8 +3,15 @@ module.exports = function(app, mongoose) {
    // var contact = require('./models/contact');
     /*=====================================================*/
 
-    app.api.login = function(req, res) {
+    app.api.login = function(req,res) {
        console.log("LogIn");
+       console.log('req.body.user');
+       console.log(req.body.user);
+       console.log('req.body.pass');
+        console.log(req.body.pass);
+
+        console.log('res');
+        console.log(res);
     };
 
     /*=====================================================*/

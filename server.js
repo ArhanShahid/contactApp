@@ -17,8 +17,7 @@ app.configure(function() {
 
 // routes ======================================================================
 require('./server/apis/contactApis')(app,mongoose);
-require('./server/models')(app,mongoose);
-require('./server/routes.js')(app);
+require('./server/routes')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);

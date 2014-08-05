@@ -4,30 +4,30 @@ var contact = require('./models/contact');
 module.exports = function(app) {
 
     // User LogIn
-    app.get('/api/login', app.api.login);
+    app.post('/api/login', app.api.login);
 
     // User signUp
     app.get('/api/signUp', app.api.signUp);
 
     // Change User Password
-    app.get('/api/:user_id/changePassword', app.api.changePassword);
+    app.get('/api/:userId/changePassword', app.api.changePassword);
 
     // Edit User Account
-    app.get('/api/:user_id/editAccount', app.api.editAccount);
+    app.get('/api/:userId/editAccount', app.api.editAccount);
 
     /*======================================================*/
 
     // Get All User Contact
-    app.get('/api/:user_id/getContact', app.api.getContact);
+    app.get('/api/:userId/getContact', app.api.getContact);
 
     // Add Contact
-    app.get('/api/:user_id/addContact', app.api.addContact);
+    app.get('/api/:userId/addContact', app.api.addContact);
 
     // Edit Contact
-    app.get('/api/:user_id/editContact/:contact_id', app.api.editContact);
+    app.get('/api/:userId/editContact/:contactId', app.api.editContact);
 
     // Delete Contact
-    app.get('/api/:user_id/deleteContact/:contact_id', app.api.deleteContact);
+    app.get('/api/:userId/deleteContact/:contactId', app.api.deleteContact);
 
     // application -------------------------------------------------------------
     app.get('*', function(req, res) {

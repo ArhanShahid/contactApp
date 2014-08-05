@@ -1,4 +1,4 @@
-var contactApp = angular.module('contactApp',['ui.router','ngRoute','ngStorage']);
+var contactApp = angular.module('contactApp',['ui.router','ngRoute','ngResource','ngStorage']);
 contactApp.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/home/login');
