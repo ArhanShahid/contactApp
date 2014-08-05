@@ -1,17 +1,15 @@
 contactApp.service('authenticationService',function(requestService){
-    var userName = "abc";
-    var userPasswrod = 123;
 
-    var _authentication =function(user){
+    var _authentication =function(user,callback){
 
-        requestService.reqLogIn(user.name,user.password);
+        requestService.reqLogIn(user,function(res){
 
-        if(user.name == userName && user.password == userPasswrod){
-
-            return true;
-        }else{
-            return false;
-        }
+            if(res.code==1 && res.Success == true){
+                callback(true);
+            }else{
+                callback(false);
+            }
+        });
     };
     var _signUp = function(user){
         return true;

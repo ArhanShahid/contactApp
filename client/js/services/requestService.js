@@ -10,12 +10,12 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
     var deleteContact = ajaxService.deleteContact();
 
 
-    var _reqLogIn = function(user,pass){
-        console.log("Request Service LogIn");
-        console.log("User : "+user+" Pass : "+pass);
+    var _reqLogIn = function(user,callback){
         login.save({
-            user:user,
-            pass:pass
+            user:user.name,
+            pass:user.password
+        },function(res){
+            callback(res)
         });
     };
 

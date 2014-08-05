@@ -4,17 +4,20 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
         var validation = user != undefined && user.name && user.password;
 
         if (validation) {
-            var logInResponse = authenticationService.logIn(user);
-            if (logInResponse) {
-                $rootScope.user.isLogin = true ;
-                $localStorage.user = user;
-                alertService.show("Login Successful", "success");
-                console.log('user');
-                console.log(user);
-                $location.path('/contact');
-            } else {
-                alertService.show("Incorrect Username or Password", "danger");
-            }
+            authenticationService.logIn(user,function(loginResponse){
+                if (loginResponse) {
+                    $rootScope.user.isLogin = true ;
+                    $localStorage.user = user;
+                    alertService.show("Login Successful", "success");
+                    console.log('Login Successful User Object');
+                    console.log(user);
+                    $location.path('/contact');
+                }
+                else {
+                    alertService.show("Incorrect Username or Password", "danger");
+                }
+            });
+
         }else{
             alertService.show("Empty Field", "danger");
         }

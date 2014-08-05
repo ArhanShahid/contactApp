@@ -1,17 +1,21 @@
 module.exports = function(app, mongoose) {
     app.api = {};
-   // var contact = require('./models/contact');
+    // var contact = require('./models/contact');
     /*=====================================================*/
 
     app.api.login = function(req,res) {
-       console.log("LogIn");
-       console.log('req.body.user');
-       console.log(req.body.user);
-       console.log('req.body.pass');
-        console.log(req.body.pass);
+        var userName = 'abc';
+        var userPass = 123;
+        if(userName == req.body.user && userPass == req.body.pass){
+            console.log('Login From Server Work Log');
+            //res.send("Login From Server Work :)");
+            res.json({Success:true,code:1,Message:"Login From Server Work :)"})
+        }else{
+            console.log('Login From Server Fail Log');
+           //res.send("Login From Server Fail :(");
+            res.json({Success:false,code:-1,Message:"Login From Server Fail :("})
 
-        console.log('res');
-        console.log(res);
+        }
     };
 
     /*=====================================================*/
