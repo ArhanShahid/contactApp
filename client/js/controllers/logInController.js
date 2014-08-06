@@ -12,11 +12,19 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
 
                     var userObject = loginResponse.userObject;
 
-                    $rootScope.user.isLogin = true ;
-                    $localStorage.user = userObject;
+                    $rootScope.user ={
+                        id : userObject._id,
+                        name : userObject.name,
+                        email: userObject.email,
+                        password : userObject.password,
+                        dob : userObject.dob,
+                        contact : userObject.contact,
+                        isLogin : true
+                    };
+
+                    $localStorage.user = $rootScope.user;
+
                     alertService.show("Login Successful", "success");
-                    console.log('Login Successful User Object');
-                    console.log(userObject);
                     $location.path('/contact');
                 }
                 else {

@@ -50,6 +50,8 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
                 };
                 console.log("Refresh");
                 console.log(user);
+            }else{
+                $location.path('contact');
             }
         }
     }
