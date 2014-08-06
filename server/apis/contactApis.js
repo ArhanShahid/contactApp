@@ -4,18 +4,17 @@ exports = module.exports = function(app, mongoose) {
     /*=====================================================*/
 
     app.api.login = function(req,res) {
-        var userName = 'abc';
-        var userPass = 123;
+
         var validation = req.body.user && req.body.pass && req.body.pass != undefined && req.body.user != undefined;
         if(validation) {
-            if (userName == req.body.user && userPass == req.body.pass) {
-                console.log('Login From Server Work - Log');
-                res.json({Success: true, code: 1, Message: "Login From Server Work :)"})
-            } else {
-                console.log('Login From Server Fail - Log');
-                res.json({Success: false, code: -1, Message: "Login From Server Fail :("})
 
-            }
+            app.db.models.User.find({'name':req.body['user'],'password':req.body['pass']},function(err,userObject){
+                if(err || (userObject && userObject.length==0) || !userObject){
+                    res.json({Success: false, code: -1, Message: "Invalid User or Password"});
+                }else {
+                    res.json({Success: true, code: 1, userObject:userObject});
+                }
+            });
         }
         else{
             console.log('Empty or Invalid Data Field - Log');
@@ -30,8 +29,6 @@ exports = module.exports = function(app, mongoose) {
         var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
         if(validationNotEmpty && validationNotUndefined){
             console.log('SignUp From Server Work - Log');
-
-
 
             var user = new app.db.models.User({
                 name:req.body.name,
