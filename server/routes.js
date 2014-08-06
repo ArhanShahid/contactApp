@@ -1,7 +1,4 @@
-
-var contact = require('./models/contact');
-
-module.exports = function(app) {
+exports = module.exports = function(app) {
 
     // User LogIn
     app.post('/api/login', app.api.login);

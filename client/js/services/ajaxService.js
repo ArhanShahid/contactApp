@@ -41,7 +41,5 @@ contactApp.factory('ajaxService',function($resource,$rootScope){
         addContact:_addContact,
         editContact:_editContact,
         deleteContact:_deleteContact
-
     }
-
 });

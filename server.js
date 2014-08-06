@@ -20,7 +20,7 @@ app.set('port', process.env.PORT || 3000);
 require('./server/config')(app);
 require('./server/db/repository')(app,mongoose);
 require('./server/models')(app,mongoose);
-require('./server/apis/contactApis')(app,mongoose);
+require('./server/apis')(app,mongoose);
 require('./server/routes')(app);
 
 // listen (start app with node server.js) ======================================
