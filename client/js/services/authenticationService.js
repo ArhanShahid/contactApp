@@ -5,7 +5,7 @@ contactApp.service('authenticationService',function(requestService){
         requestService.reqLogIn(user,function(res){
 
             if(res.code==1 && res.Success == true){
-                callback(true);
+                callback(res);
             }else{
                 callback(false);
             }

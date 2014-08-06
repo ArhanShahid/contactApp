@@ -1,16 +1,24 @@
 contactApp.controller('appController',function($rootScope,$location,$localStorage){
 
     $rootScope.user = {
-        isLogin : false,
+        id:null,
         name:null,
-        password:null
+        email:null,
+        password:null,
+        dob:null,
+        contact:null,
+        isLogin : false
     };
 
     $rootScope.logOut = function(){
         $rootScope.user = {
-            isLogin : false,
+            id:null,
             name:null,
-            password:null
+            email:null,
+            password:null,
+            dob:null,
+            contact:null,
+            isLogin : false
         };
         delete $localStorage.user;
         $location.path('/home/login');
@@ -32,10 +40,16 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
         if(user != undefined){
             if(user.name !=null && user.password!=null){
                 $rootScope.user = {
-                    isLogin : user.isLogin,
+                    id:user.id,
                     name:user.name,
-                    password:user.password
+                    email:user.email,
+                    password:user.password,
+                    dob:user.dob,
+                    contact:user.contact,
+                    isLogin : user.isLogin
                 };
+                console.log("Refresh");
+                console.log(user);
             }
         }
     }
