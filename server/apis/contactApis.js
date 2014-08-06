@@ -6,15 +6,21 @@ module.exports = function(app, mongoose) {
     app.api.login = function(req,res) {
         var userName = 'abc';
         var userPass = 123;
-        if(userName == req.body.user && userPass == req.body.pass){
-            console.log('Login From Server Work Log');
-            //res.send("Login From Server Work :)");
-            res.json({Success:true,code:1,Message:"Login From Server Work :)"})
-        }else{
-            console.log('Login From Server Fail Log');
-           //res.send("Login From Server Fail :(");
-            res.json({Success:false,code:-1,Message:"Login From Server Fail :("})
+        var validation = req.body.user && req.body.pass && req.body.pass != undefined && req.body.user != undefined;
+        if(validation) {
+            if (userName == req.body.user && userPass == req.body.pass) {
+                console.log('Login From Server Work Log');
+                //res.send("Login From Server Work :)");
+                res.json({Success: true, code: 1, Message: "Login From Server Work :)"})
+            } else {
+                console.log('Login From Server Fail Log');
+                //res.send("Login From Server Fail :(");
+                res.json({Success: false, code: -1, Message: "Login From Server Fail :("})
 
+            }
+        }
+        else{
+            res.json({Success: false, code: -1, Message: "Empty or Invalid Data"})
         }
     };
 
