@@ -19,8 +19,20 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         });
     };
 
+    var _reqSignUp = function(user,callback){
+        signUp.save({
+            name:user.name,
+            email:user.email,
+            dob:user.dob,
+            password:user.password
+        },function(res){
+            callback(res)
+        });
+    };
+
     return{
-        reqLogIn:_reqLogIn
+        reqLogIn:_reqLogIn,
+        reqSignUp:_reqSignUp
     }
 
 });

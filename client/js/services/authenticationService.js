@@ -11,8 +11,16 @@ contactApp.service('authenticationService',function(requestService){
             }
         });
     };
-    var _signUp = function(user){
-        return true;
+    var _signUp = function(user,callback){
+        requestService.reqSignUp(user,function(res){
+            if(res.code==1 && res.Success == true){
+                console.log("Sign Up Resp Object");
+                console.log(res);
+                callback(true);
+            }else{
+                callback(false);
+            }
+        })
     };
 
     return{
