@@ -1,8 +1,5 @@
 contactApp.controller('signUpController',function($scope,authenticationService,$location,alertService){
-    $scope.logIn = "Welcome To Sign Up";
-
-
-
+    
     $scope.signUp =function(user){
         console.log("Sign Up");
         console.log(user);
