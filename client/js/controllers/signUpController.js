@@ -3,9 +3,9 @@ contactApp.controller('signUpController',function($scope,authenticationService,$
     $scope.signUp =function(user){
         console.log("Sign Up");
         console.log(user);
+        var validationNotEmpty = user != undefined && user.name && user.email && user.dob && user.password && user.confirmPassword;
 
-        var validation = user != undefined && user.name && user.email && user.dob && user.password && user.confirmPassword;
-        if(validation) {
+        if(validationNotEmpty) {
             if (user.password != user.confirmPassword) {
                 alertService.show("Incorrect Password", "danger");
             } else {
