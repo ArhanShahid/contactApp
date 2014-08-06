@@ -1,6 +1,6 @@
-module.exports = function(app, mongoose) {
+exports = module.exports = function(app, mongoose) {
     app.api = {};
-    // var contact = require('./models/contact');
+
     /*=====================================================*/
 
     app.api.login = function(req,res) {
@@ -30,15 +30,43 @@ module.exports = function(app, mongoose) {
         var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
         if(validationNotEmpty && validationNotUndefined){
             console.log('SignUp From Server Work - Log');
-            res.json({
-                Success: true,
-                code: 1,
-                Message: "SignUp From Server Work",
+
+
+
+            user.create({
                 name:req.body.name,
                 email:req.body.email,
                 dob:req.body.dob,
                 password:req.body.password
-            })
+            },function(err,resp){
+                if (err) {
+                    res.send(err);
+                }
+                res.json({
+                    Success: true,
+                    code: 1,
+                    Message: "SignUp From Server Work",
+                    resp:resp
+                })
+            });
+
+
+
+
+
+
+
+
+
+//            res.json({
+//                Success: true,
+//                code: 1,
+//                Message: "SignUp From Server Work",
+//                name:req.body.name,
+//                email:req.body.email,
+//                dob:req.body.dob,
+//                password:req.body.password
+//            })
         }
         else{
             console.log('Empty or Invalid Data Field - Log');

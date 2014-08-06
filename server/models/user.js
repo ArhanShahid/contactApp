@@ -8,6 +8,7 @@ exports = module.exports = function(app, mongoose) {
         name                    : String,
         email                   : String,
         dob                     : Date,
+        password                : String,
         contact                 : [{type: ObjectId, ref: 'Contact'}]
     });
 
