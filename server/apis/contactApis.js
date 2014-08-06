@@ -33,40 +33,19 @@ exports = module.exports = function(app, mongoose) {
 
 
 
-            user.create({
+            var user = new app.db.models.User({
                 name:req.body.name,
                 email:req.body.email,
                 dob:req.body.dob,
                 password:req.body.password
-            },function(err,resp){
+            });
+
+            user.save(function(err,responce){
                 if (err) {
                     res.send(err);
                 }
-                res.json({
-                    Success: true,
-                    code: 1,
-                    Message: "SignUp From Server Work",
-                    resp:resp
-                })
+                res.json(responce)
             });
-
-
-
-
-
-
-
-
-
-//            res.json({
-//                Success: true,
-//                code: 1,
-//                Message: "SignUp From Server Work",
-//                name:req.body.name,
-//                email:req.body.email,
-//                dob:req.body.dob,
-//                password:req.body.password
-//            })
         }
         else{
             console.log('Empty or Invalid Data Field - Log');
