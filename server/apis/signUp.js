@@ -17,7 +17,7 @@ exports = module.exports = function(app, mongoose) {
                 if (err) {
                     res.send(err);
                 }
-                res.json(responce)
+                res.json({Success: true, code: 1, userObject:responce});
             });
         }
         else{
