@@ -3,6 +3,15 @@ exports = module.exports = function(app, mongoose) {
     app.api.signUp = function(req, res) {
         var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password;
         var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
+
+//        if(app.api.regexStringValidator(req.body.name.toLocaleString())){
+//
+//
+//
+//        }
+
+
+
         if(validationNotEmpty && validationNotUndefined){
             console.log('SignUp From Server Work - Log');
 
