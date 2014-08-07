@@ -1,18 +1,16 @@
 exports = module.exports = function(app,mongoose) {
     app.api = {};
 
-    app.api.dbCallback = function(error, responseData) {
+    app.api.callback = function(error, responseData) {
 
         if (error) {
             console.log(error);
-            app.api.dbCallback.res.json({ error: error, code: -1, success: false});
+            app.api.callback.res.json({ error: error, code: -1, success: false});
         } else {
             console.log(responseData);
-            app.api.dbCallback.res.json({  responseData: responseData, code: 1, success: true });
+            app.api.callback.res.json({  responseData: responseData, code: 1, success: true });
         }
     };
-
-
 
     app.api.regexStringValidator = function(regStr){
         var con1 = /^[^0-9_]/.test(regStr);

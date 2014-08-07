@@ -1,6 +1,8 @@
 exports = module.exports = function(app, mongoose) {
 
     app.api.signUp = function(req, res) {
+
+        app.api.callback.res = res;
         var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password;
         var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
 
@@ -26,12 +28,12 @@ exports = module.exports = function(app, mongoose) {
                 if (err) {
                     res.send(err);
                 }
-                res.json({Success: true, code: 1, userObject:responce});
+                app.api.callback(err,responce);
             });
         }
         else{
             console.log('Empty or Invalid Data Field - Log');
-            res.json({Success: false, code: -1, Message: "Empty or Invalid Data Field"});
+            app.api.callback("Empty or Invalid Data Field");
         }
 
     };
