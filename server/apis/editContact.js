@@ -4,10 +4,10 @@ exports = module.exports = function(app, mongoose) {
 
         app.api.callback.res = res;
 
-        var validationNotEmpty = req.body.name && req.body.phone && req.params.userId && req.params.contactId;
-        var validationNotUndefined = req.body.phone != undefined && req.body.phone != undefined && req.params.userId != undefined && req.params.contactId != undefined;
+            var validationNotEmpty = req.body.name && req.body.phone && req.params.userId && req.params.contactId;
+            var validationNotUndefined = req.body.name != undefined && req.body.phone != undefined && req.params.userId != undefined && req.params.contactId != undefined;
 
-        if(validationNotEmpty && validationNotUndefined){
+            if(validationNotEmpty && validationNotUndefined){
 
             app.db.models.Contact.findOne({owner:req.params.userId,_id:req.params.contactId},function(err,contactObject){
 
