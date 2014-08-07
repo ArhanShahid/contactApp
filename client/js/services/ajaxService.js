@@ -25,11 +25,11 @@ contactApp.factory('ajaxService',function($resource,$rootScope){
     };
 
     var _editContact = function(){
-        return $resource('/api/editContact/:contactId',{contactId:'@contactId'})
+        return $resource('/api/:userId/editContact/:contactId',{userId:'@id',contactId:'@contactId'})
     };
 
     var _deleteContact = function(){
-        return $resource('/api/deleteContact/:contactId',{contactId:'@contactId'})
+        return $resource('/api/:userId/deleteContact/:contactId',{userId:'@id',contactId:'@contactId'})
     };
 
     return{
