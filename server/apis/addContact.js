@@ -18,8 +18,15 @@ exports = module.exports = function(app, mongoose) {
                 }
                 else{
 
+//                    app.db.models.Contact.findOne({name:req.body.name,owner:userObject._id},function(err,contactObject){
+//
+//                        if (err) {
+//                            app.api.callback(err);
+//                        }
+//                        app.api.callback(err,contactObject);
+//                    });
 
-                    app.db.models.Contact.find({name:req.body.name},function(err,contactObject) {
+                    app.db.models.Contact.find({name:req.body.name,owner:userObject._id},function(err,contactObject) {
 
                         if (err) {
                             app.api.callback(err);
@@ -48,8 +55,6 @@ exports = module.exports = function(app, mongoose) {
                             });
                         }
                     });
-
-
                 }
             })
         }
