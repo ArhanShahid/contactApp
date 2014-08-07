@@ -3,11 +3,11 @@ exports = module.exports = function(app, mongoose) {
     app.api.signUp = function(req, res) {
 
         app.api.callback.res = res;
+
         var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password;
         var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
         var userName = req.body.name.toLowerCase();
         var validationUserName = app.api.regexStringValidator(userName);
-
 
         if(validationNotEmpty && validationNotUndefined){
 
@@ -30,11 +30,11 @@ exports = module.exports = function(app, mongoose) {
                             dob: req.body.dob,
                             password: req.body.password
                         });
-                        user.save(function (err, responce) {
+                        user.save(function (err, userObject) {
                             if (err) {
                                 res.send(err);
                             }
-                            app.api.callback(err, responce);
+                            app.api.callback(err, userObject);
                         });
 
                     }

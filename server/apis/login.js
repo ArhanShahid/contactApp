@@ -3,9 +3,12 @@ exports = module.exports = function(app, mongoose) {
     app.api.login = function(req,res) {
 
         app.api.callback.res = res;
-        var validation = req.body.user && req.body.pass && req.body.pass != undefined && req.body.user != undefined;
-        if(validation) {
-            app.db.models.User.findOne({'name':req.body['user'],'password':req.body['pass']},function(err,userObject){
+
+        var validationNotEmpty = req.body.name && req.body.password;
+        var validationNotUndefined = req.body.password != undefined && req.body.name != undefined;
+
+        if(validationNotEmpty && validationNotUndefined ) {
+            app.db.models.User.findOne({'name':req.body['name'],'password':req.body['password']},function(err,userObject){
                 if(err || (userObject && userObject.length==0) || !userObject){
                     app.api.callback(err || "Invalid User or Password");
                 }else {
