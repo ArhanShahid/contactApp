@@ -4,8 +4,8 @@ exports = module.exports = function(app, mongoose) {
 
         app.api.callback.res = res;
 
-        var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password && req.params.userId;
-        var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined && req.params.userId != undefined;
+        var validationNotEmpty = req.body.email && req.body.dob && req.body.password && req.params.userId;
+        var validationNotUndefined = req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined && req.params.userId != undefined;
 
         if(validationNotEmpty && validationNotUndefined){
 
@@ -25,7 +25,15 @@ exports = module.exports = function(app, mongoose) {
                         app.api.callback("Invalid User or Password");
                     }
                     else {
-                        app.api.callback(err, userObject);
+                        userObject.email = req.body.email;
+                        userObject.dob = req.body.dob;
+                        userObject.save(function(err,userObject){
+
+                            if(err){
+                                app.api.callback(err);
+                            }
+                            app.api.callback(err, userObject);
+                        });
                     }
                 }
             });
