@@ -8,22 +8,36 @@ exports = module.exports = function(app, mongoose) {
         var userName = req.body.name.toLowerCase();
         var validationUserName = app.api.regexStringValidator(userName);
 
+
         if(validationNotEmpty && validationNotUndefined){
 
             if (validationUserName) {
-                console.log('SignUp From Server Work - Log');
-                var user = new app.db.models.User({
-                    name: req.body.name,
-                    email: req.body.email,
-                    dob: req.body.dob,
-                    password: req.body.password
-                });
 
-                user.save(function (err, responce) {
-                    if (err) {
-                        res.send(err);
+                app.db.models.User.findOne({name:userName},function(err,userObject){
+
+                    if(err){
+                        app.api.callback(err);
                     }
-                    app.api.callback(err, responce);
+                    else if(userObject && userObject.name){
+                        console.log("User ID already exists, Please select different ID - Log");
+                         app.api.callback("User ID already exists, Please select different ID");
+                    }else{
+
+                        console.log('SignUp From Server Work - Log');
+                        var user = new app.db.models.User({
+                            name: req.body.name,
+                            email: req.body.email,
+                            dob: req.body.dob,
+                            password: req.body.password
+                        });
+                        user.save(function (err, responce) {
+                            if (err) {
+                                res.send(err);
+                            }
+                            app.api.callback(err, responce);
+                        });
+
+                    }
                 });
             }
             else {
