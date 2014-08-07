@@ -7,7 +7,7 @@ exports = module.exports = function(app) {
     app.post('/api/signUp', app.api.signUp);
 
     // Change User Password
-    app.get('/api/:userId/changePassword', app.api.changePassword);
+    app.post('/api/:userId/changePassword', app.api.changePassword);
 
     // Edit User Account
     app.get('/api/:userId/editAccount', app.api.editAccount);

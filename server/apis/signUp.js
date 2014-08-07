@@ -20,7 +20,7 @@ exports = module.exports = function(app, mongoose) {
                     }
                     else if(userObject && userObject.name){
                         console.log("User ID already exists, Please select different ID - Log");
-                         app.api.callback("User ID already exists, Please select different ID");
+                        app.api.callback("User ID already exists, Please select different ID");
                     }else{
 
                         console.log('SignUp From Server Work - Log');
