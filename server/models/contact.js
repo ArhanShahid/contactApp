@@ -7,7 +7,7 @@ exports = module.exports = function(app, mongoose) {
     var contactSchema = new Schema({
         owner                   : {type: ObjectId, ref: 'User'},
         name                    : String,
-        phone                   : Number
+        phone                   : String
     });
 
     app.db.model('Contact', contactSchema);

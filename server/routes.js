@@ -18,7 +18,7 @@ exports = module.exports = function(app) {
     app.get('/api/:userId/getContact', app.api.getContact);
 
     // Add Contact
-    app.get('/api/:userId/addContact', app.api.addContact);
+    app.post('/api/:userId/addContact', app.api.addContact);
 
     // Edit Contact
     app.get('/api/:userId/editContact/:contactId', app.api.editContact);
