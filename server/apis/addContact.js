@@ -18,24 +18,38 @@ exports = module.exports = function(app, mongoose) {
                 }
                 else{
 
-                    var contact = new app.db.models.Contact({
-                        owner: req.params.userId,
-                        name: req.body.name,
-                        phone: req.body.phone
-                    });
-                    contact.save(function (err, contactObject) {
-                        if (err) {
-                            res.send(err);
-                        }
-                        userObject.contact.push(contactObject._id);
-                        userObject.save(function(err,userObject){
-                            if (err) {
-                                res.send(err);
-                            }
-                            app.api.callback(err, contactObject);
-                        });
 
+                    app.db.models.Contact.find({name:req.body.name},function(err,contactObject) {
+
+                        if (err) {
+                            app.api.callback(err);
+                        } else if (contactObject.length > 0) {
+                            console.log("Contact Name already exists, Please select different Name - Log");
+                            app.api.callback("Contact Name already exists, Please select different Name");
+                        }
+                        else {
+                            var contact = new app.db.models.Contact({
+                                owner: req.params.userId,
+                                name: req.body.name,
+                                phone: req.body.phone
+                            });
+                            contact.save(function (err, contactObject) {
+                                if (err) {
+                                    res.send(err);
+                                }
+                                userObject.contact.push(contactObject._id);
+                                userObject.save(function(err,userObject){
+                                    if (err) {
+                                        res.send(err);
+                                    }
+                                    app.api.callback(err, contactObject);
+                                });
+
+                            });
+                        }
                     });
+
+
                 }
             })
         }

@@ -21,10 +21,10 @@ exports = module.exports = function(app) {
     app.post('/api/:userId/addContact', app.api.addContact);
 
     // Edit Contact
-    app.get('/api/:userId/editContact/:contactId', app.api.editContact);
+    app.post('/api/editContact/:contactId', app.api.editContact);
 
     // Delete Contact
-    app.get('/api/:userId/deleteContact/:contactId', app.api.deleteContact);
+    app.delete('/api/deleteContact/:contactId', app.api.deleteContact);
 
     // application -------------------------------------------------------------
     app.get('*', function(req, res) {
