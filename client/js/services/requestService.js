@@ -9,7 +9,6 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
     var editContact = ajaxService.editContact();
     var deleteContact = ajaxService.deleteContact();
 
-
     var _reqLogIn = function(user,callback){
         login.save({
             name:user.name,

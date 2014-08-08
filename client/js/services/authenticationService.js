@@ -1,4 +1,4 @@
-contactApp.service('authenticationService',function(requestService,alertService){
+contactApp.service('authenticationService',function(requestService){
 
     var _authentication =function(user,callback){
 
@@ -18,11 +18,13 @@ contactApp.service('authenticationService',function(requestService,alertService)
     var _signUp = function(user,callback){
         requestService.reqSignUp(user,function(res){
             if(res.code==1 && res.success == true){
-                console.log("Sign Up Resp Object");
+                console.log("Response from Server");
                 console.log(res);
-                callback(true);
+                callback(true,res.responseData);
             }else{
-                callback(false);
+                console.log("Response from Server");
+                console.log(res);
+                callback(false,res.error);
             }
         })
     };

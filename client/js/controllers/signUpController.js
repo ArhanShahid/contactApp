@@ -1,4 +1,4 @@
-contactApp.controller('signUpController',function($rootScope,$scope,authenticationService,$location,alertService,$localStorage){
+contactApp.controller('signUpController',function($rootScope,$scope,authenticationService,$location,alertService,$localStorage,dataService){
 
     $scope.signUp =function(user){
         console.log("Sign Up");
@@ -9,27 +9,16 @@ contactApp.controller('signUpController',function($rootScope,$scope,authenticati
             if (user.password != user.confirmPassword) {
                 alertService.show("Incorrect Password", "danger");
             } else {
-                authenticationService.signUp(user,function(signUpResponse){
+                authenticationService.signUp(user,function(signUpResponse,responseObject){
                     if (signUpResponse) {
 
-                        var userObject = signUpResponse.userObject;
-
-                        $rootScope.user ={
-                            id : userObject._id,
-                            name : userObject.name,
-                            email: userObject.email,
-                            password : userObject.password,
-                            dob : userObject.dob,
-                            contact : userObject.contact,
-                            isLogin : true
-                        };
-
+                        dataService.setRootScoop(responseObject);
                         $localStorage.user = $rootScope.user;
 
-                        alertService.show("Sign Up", "success");
+                        alertService.show("Sign Up Successful", "success");
                         $location.path('/contact');
                     } else {
-                        alertService.show("Unable to Sign Up", "danger");
+                        alertService.show(responseObject, "danger");
                     }
                 });
             }
