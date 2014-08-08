@@ -7,18 +7,16 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
         var validation = user != undefined && user.name && user.password;
 
         if (validation) {
-            authenticationService.logIn(user,function(loginResponse){
+            authenticationService.logIn(user,function(loginResponse,responseObject){
                 if (loginResponse) {
 
-                    var userObject = loginResponse.userObject;
-
                     $rootScope.user ={
-                        id : userObject._id,
-                        name : userObject.name,
-                        email: userObject.email,
-                        password : userObject.password,
-                        dob : userObject.dob,
-                        contact : userObject.contact,
+                        id : responseObject._id,
+                        name : responseObject.name,
+                        email: responseObject.email,
+                        password : responseObject.password,
+                        dob : responseObject.dob,
+                        contact : responseObject.contact,
                         isLogin : true
                     };
 
@@ -28,7 +26,7 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
                     $location.path('/contact');
                 }
                 else {
-                    alertService.show("Incorrect Username or Password", "danger");
+                    alertService.show(responseObject, "danger");
                 }
             });
 

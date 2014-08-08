@@ -12,8 +12,8 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
 
     var _reqLogIn = function(user,callback){
         login.save({
-            user:user.name,
-            pass:user.password
+            name:user.name,
+            password:user.password
         },function(res){
             callback(res)
         });
