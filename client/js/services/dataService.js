@@ -28,6 +28,14 @@ contactApp.service('dataService',function($rootScope,$localStorage){
 
     var _setContacts  = function(contacts){
         $rootScope.contacts = contacts;
+        $localStorage.contacts = $rootScope.contacts;
+    };
+    var _getContacts  = function(){
+        var contacts = $localStorage.contacts;
+        $rootScope.contacts = contacts;
+        console.log('var contacts = $localStorage.contacts;');
+        console.log(contacts);
+        return  contacts;
     };
 
     /*==========================================*/
@@ -52,7 +60,8 @@ contactApp.service('dataService',function($rootScope,$localStorage){
         resetRootScoop:_resetRootScoop,
         getEditObject:_getEditObj,
         setEditObject:_setEditObj,
-        setContacts:_setContacts
+        setContacts:_setContacts,
+        getContacts:_getContacts
     }
 });
 

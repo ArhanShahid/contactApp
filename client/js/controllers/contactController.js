@@ -7,7 +7,9 @@ contactApp.controller('contactController',function($rootScope,$scope,$location,d
             var contacts = responseObject.responseData;
             if(contacts.length > 0){
                 $scope.noContactSave = true;
-                $scope.contacts = contacts;
+                dataService.setContacts(contacts);
+                $scope.contacts = dataService.getContacts();
+
             }else{
                 $scope.noContactSave = false;
             }

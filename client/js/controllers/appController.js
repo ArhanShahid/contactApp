@@ -6,6 +6,7 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
 
         dataService.resetRootScoop();
         delete $localStorage.user;
+        delete $localStorage.contacts;
         $location.path('/home/login');
     };
 
@@ -26,7 +27,7 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
             if(user.name !=null && user.password!=null){
 
                 dataService.setRootScoop(user);
-
+                dataService.getContacts();
                 console.log("Refresh");
                 console.log(user);
             }else{
