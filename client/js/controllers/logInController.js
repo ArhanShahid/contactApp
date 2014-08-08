@@ -2,7 +2,8 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
 
     $scope.logIn = function(user) {
 
-        delete $localStorage.user;
+        dataService.resetRootScoop();
+        dataService.deleteLocalStorage();
 
         var validation = user != undefined && user.name && user.password;
 
@@ -11,8 +12,7 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
                 if (loginResponse) {
 
                     dataService.setRootScoop(responseObject);
-
-                    $localStorage.user = $rootScope.user;
+                    dataService.saveLocalStorage();
 
                     alertService.show("Login Successful", "success");
                     $location.path('/contact');
