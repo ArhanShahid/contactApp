@@ -10,7 +10,6 @@ contactApp.service('dataService',function($rootScope,$localStorage){
             contact : rootScope.contact,
             isLogin : true
         };
-
     };
 
     var _resetRootScoop = function(){
@@ -25,15 +24,6 @@ contactApp.service('dataService',function($rootScope,$localStorage){
         };
 
     };
-    /*==========================================*/
-
-    var _saveLocalStorage = function(){
-        $localStorage.user = $rootScope.user;
-    };
-    var _deleteLocalStorage = function(){
-        delete $localStorage.user;
-    };
-
     /*==========================================*/
 
     var _setContacts  = function(contacts){
@@ -62,8 +52,7 @@ contactApp.service('dataService',function($rootScope,$localStorage){
         resetRootScoop:_resetRootScoop,
         getEditObject:_getEditObj,
         setEditObject:_setEditObj,
-        saveLocalStorage:_saveLocalStorage,
-        deleteLocalStorage:_deleteLocalStorage
+        setContacts:_setContacts
     }
 });
 

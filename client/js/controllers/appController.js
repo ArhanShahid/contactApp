@@ -5,8 +5,7 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
     $rootScope.logOut = function(){
 
         dataService.resetRootScoop();
-
-        dataService.deleteLocalStorage();
+        delete $localStorage.user;
         $location.path('/home/login');
     };
 

@@ -13,8 +13,8 @@ contactApp.controller('signUpController',function($rootScope,$scope,authenticati
                     if (signUpResponse) {
 
                         dataService.setRootScoop(responseObject);
-                        dataService.saveLocalStorage();
-
+                        $localStorage.user = $rootScope.user;
+                        
                         alertService.show("Sign Up Successful", "success");
                         $location.path('/contact');
                     } else {
