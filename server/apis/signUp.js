@@ -4,8 +4,8 @@ exports = module.exports = function(app, mongoose) {
 
         app.api.callback.res = res;
 
-        var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password;
-        var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined;
+        var validationNotEmpty = req.body.name && req.body.email && req.body.dob && req.body.password && !req.body.contact;
+        var validationNotUndefined = req.body.name != undefined && req.body.email != undefined && req.body.dob != undefined && req.body.password != undefined && req.body.contact == undefined ;
         var userName = req.body.name.toLowerCase();
         var validationUserName = app.api.regexStringValidator(userName);
 
