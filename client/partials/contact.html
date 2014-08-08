@@ -1,9 +1,12 @@
 <div class="col-md-12">
     <div class="addContact">
+        <span class="noContactSave" ng-hide="noContactSave">
+            No Contact Save
+        </span>
         <a ui-sref="add" class="btn btn-success btn-sm pull-right">Add Contact</a>
     </div>
     <ul class="list-group">
-        <li ng-repeat="contact in contacts" class="list-group-item">
+        <li ng-repeat="contact in contacts" class="list-group-item letterUppercase">
             {{contact.name}} : {{contact.phone}}
             <span class="glyphicon glyphicon-cog pull-right" ng-click="edit(contact)"></span>
         </li>

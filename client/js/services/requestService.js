@@ -29,9 +29,19 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         });
     };
 
+
+    /*============================================================*/
+
+    var _reqGetContact = function(callback){
+        getContact.get({userId:$rootScope.user.id},function(res){
+            callback(res);
+        })
+    };
+
     return{
         reqLogIn:_reqLogIn,
-        reqSignUp:_reqSignUp
+        reqSignUp:_reqSignUp,
+        reqGetContact:_reqGetContact
     }
 
 });

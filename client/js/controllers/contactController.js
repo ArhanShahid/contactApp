@@ -1,32 +1,21 @@
-contactApp.controller('contactController',function($scope,$location,dataService){
+contactApp.controller('contactController',function($rootScope,$scope,$location,dataService,requestService,alertService){
 
-    $scope.contacts = [
-        { name:'A',phone:03330000000},
-        { name:'B',phone:03330000001},
-        { name:'C',phone:03330000002},
-        { name:'D',phone:03330000003},
-        { name:'E',phone:03330000004},
-        { name:'F',phone:03330000005},
-        { name:'G',phone:03330000006},
-        { name:'H',phone:03330000007},
-        { name:'I',phone:03330000008},
-        { name:'J',phone:03330000009},
-        { name:'L',phone:03330000010},
-        { name:'M',phone:03330000011},
-        { name:'N',phone:03330000012},
-        { name:'O',phone:03330000013},
-        { name:'P',phone:03330000014},
-        { name:'Q',phone:03330000015},
-        { name:'R',phone:03330000016},
-        { name:'S',phone:03330000017},
-        { name:'T',phone:03330000018},
-        { name:'U',phone:03330000019},
-        { name:'V',phone:03330000020},
-        { name:'W',phone:03330000021},
-        { name:'X',phone:03330000022},
-        { name:'Y',phone:03330000023},
-        { name:'Z',phone:03330000024}
-    ];
+    $scope.noContactSave = true;
+
+    requestService.reqGetContact(function(responseObject){
+        if(responseObject.code==1 && responseObject.success == true) {
+            var contacts = responseObject.responseData;
+            if(contacts.length > 0){
+                $scope.noContactSave = true;
+                $scope.contacts = contacts;
+            }else{
+                $scope.noContactSave = false;
+            }
+
+        }else{
+            alertService.show(responseObject.error, "danger");
+        }
+    });
 
     $scope.edit = function(contact){
         dataService.setEditObject(contact);

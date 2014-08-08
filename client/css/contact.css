@@ -26,6 +26,12 @@
 {
     text-transform: uppercase;
 }
+.noContactSave{
+    color: #333333;
+    font-weight: bold;
+    font-size: medium;
+}
+
 /*
 ======================================
               General CSS
