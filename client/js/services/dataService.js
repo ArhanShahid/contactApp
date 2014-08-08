@@ -1,4 +1,9 @@
-contactApp.service('editService',function(){
+contactApp.service('dataService',function(){
+
+
+
+
+
 
     var editObj = {
         name:null,

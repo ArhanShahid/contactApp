@@ -22,7 +22,10 @@
 .addContact{
     height: 50px;
 }
-
+.letterUppercase::first-letter
+{
+    text-transform: uppercase;
+}
 /*
 ======================================
               General CSS

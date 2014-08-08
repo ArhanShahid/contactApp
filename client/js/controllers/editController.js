@@ -1,6 +1,6 @@
-contactApp.controller('editController',function($scope,editService,alertService,$location){
+contactApp.controller('editController',function($scope,dataService,alertService,$location){
 
-    var edit = editService.getEditObject();
+    var edit = dataService.getEditObject();
 
     $scope.editContact = "Edit Contact";
     $scope.editObject = edit;

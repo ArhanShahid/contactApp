@@ -1,4 +1,4 @@
-contactApp.controller('contactController',function($scope,$location,editService){
+contactApp.controller('contactController',function($scope,$location,dataService){
 
     $scope.contacts = [
         { name:'A',phone:03330000000},
@@ -29,7 +29,7 @@ contactApp.controller('contactController',function($scope,$location,editService)
     ];
 
     $scope.edit = function(contact){
-        editService.setEditObject(contact);
+        dataService.setEditObject(contact);
         $location.path('/edit');
     }
 });

@@ -22,7 +22,10 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right" ng-show="user.isLogin">
                     <li class="dropdown">
-                        <a ui-sref="contact" class="dropdown-toggle fontWhite" data-toggle="dropdown">{{user.name}}<span class="caret"></span></a>
+                        <a ui-sref="contact" class="dropdown-toggle fontWhite letterUppercase" data-toggle="dropdown">
+                            {{user.name}}
+                            <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a>Edit Account</a>
@@ -68,7 +71,7 @@
 
 <script src="js/services/authenticationService.js"></script>
 <script src="js/services/alertService.js"></script>
-<script src="js/services/editService.js"></script>
+<script src="js/services/dataService.js"></script>
 <script src="js/services/ajaxService.js"></script>
 <script src="js/services/requestService.js"></script>
 
