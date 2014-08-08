@@ -15,7 +15,12 @@ exports = module.exports = function(app,mongoose) {
     app.api.regexStringValidator = function(regStr){
         var con1 = /^[^0-9_]/.test(regStr);
         var con2 =!(/\W/.test(regStr));
-        return con1 === con2 ? true:false
+        var bothFalse = con1 == false && con2 == false;
+        if(bothFalse){
+            return false;
+        }else {
+            return con1 === con2 ? true : false
+        }
     };
 
     require('./login')(app,mongoose);
