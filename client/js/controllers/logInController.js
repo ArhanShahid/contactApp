@@ -1,4 +1,4 @@
-contactApp.controller("logInController",function($rootScope,$scope,authenticationService,$location,$localStorage,alertService) {
+contactApp.controller("logInController",function($rootScope,$scope,authenticationService,$location,$localStorage,dataService,alertService) {
 
     $scope.logIn = function(user) {
 
@@ -10,15 +10,7 @@ contactApp.controller("logInController",function($rootScope,$scope,authenticatio
             authenticationService.logIn(user,function(loginResponse,responseObject){
                 if (loginResponse) {
 
-                    $rootScope.user ={
-                        id : responseObject._id,
-                        name : responseObject.name,
-                        email: responseObject.email,
-                        password : responseObject.password,
-                        dob : responseObject.dob,
-                        contact : responseObject.contact,
-                        isLogin : true
-                    };
+                    dataService.setRootScoop(responseObject);
 
                     $localStorage.user = $rootScope.user;
 

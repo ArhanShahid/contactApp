@@ -1,25 +1,11 @@
-contactApp.controller('appController',function($rootScope,$location,$localStorage){
+contactApp.controller('appController',function($rootScope,$location,$localStorage,dataService){
 
-    $rootScope.user = {
-        id:null,
-        name:null,
-        email:null,
-        password:null,
-        dob:null,
-        contact:null,
-        isLogin : false
-    };
+    dataService.resetRootScoop();
 
     $rootScope.logOut = function(){
-        $rootScope.user = {
-            id:null,
-            name:null,
-            email:null,
-            password:null,
-            dob:null,
-            contact:null,
-            isLogin : false
-        };
+
+        dataService.resetRootScoop();
+
         delete $localStorage.user;
         $location.path('/home/login');
     };
@@ -39,15 +25,9 @@ contactApp.controller('appController',function($rootScope,$location,$localStorag
         var user = $localStorage.user;
         if(user != undefined){
             if(user.name !=null && user.password!=null){
-                $rootScope.user = {
-                    id:user.id,
-                    name:user.name,
-                    email:user.email,
-                    password:user.password,
-                    dob:user.dob,
-                    contact:user.contact,
-                    isLogin : user.isLogin
-                };
+
+                dataService.setRootScoop(user);
+
                 console.log("Refresh");
                 console.log(user);
             }else{
