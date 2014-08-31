@@ -41,12 +41,16 @@ contactApp.service('dataService',function($rootScope,$localStorage){
     /*==========================================*/
 
     var editObj = {
+        id:null,
+        owner:null,
         name:null,
         phone:null
     };
 
     var _setEditObj = function(obj){
         editObj = {
+            id:obj._id,
+            owner:obj.owner,
             name:obj.name,
             phone:obj.phone
         };

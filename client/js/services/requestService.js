@@ -38,8 +38,6 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         })
     };
 
-    /*============================================================*/
-
     var _reqAddContact = function(contact,callback){
         addContact.save({
                 userId:$rootScope.user.id
@@ -53,11 +51,35 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
             })
     };
 
+    var _reqEditContact = function(contact,callback){
+        editContact.save({
+                userId:$rootScope.user.id,
+                contactId:contact.id
+            },
+            {
+                name:contact.name,
+                phone:contact.phone
+            },
+            function(res){
+                callback(res);
+            })
+    };
+    var _reqDeleteContact = function(contact,callback){
+        deleteContact.delete({
+                userId:$rootScope.user.id,
+                contactId:contact.id
+            },
+            function(res){
+                callback(res);
+            })
+    };
     return{
         reqLogIn:_reqLogIn,
         reqSignUp:_reqSignUp,
         reqGetContact:_reqGetContact,
-        'reqAddContact':_reqAddContact
+        'reqAddContact':_reqAddContact,
+        'reqEditContact':_reqEditContact,
+        'reqDeleteContact':_reqDeleteContact
     }
 
 });

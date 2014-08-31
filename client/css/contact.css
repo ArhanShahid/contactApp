@@ -49,6 +49,9 @@
 .marginTop15{
     margin-top: 15px;
 }
+.marginTop17{
+    margin-top: 17px;
+}
 .marginTop20{
     margin-top: 20px;
 }
@@ -78,4 +81,7 @@
 }
 .paddingBottom55{
     padding-bottom: 55px !important;
+}
+.paddingBottom20{
+    padding-bottom: 20px !important;
 }

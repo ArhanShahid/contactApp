@@ -1,9 +1,11 @@
 <div class="col-md-12">
     <div class="well paddingBottom55">
-        <h3>{{editContact}}</h3>
+
+        <h3 class="pull-left paddingBottom20">{{editContact}}</h3>
+        <button class="btn btn-danger pull-right btn-sm marginTop17" ng-click="deleteContact(editObject)">Delete Contact</button>
         <input class="marginTop10 form-control" type="text" ng-model="editObject.name" placeholder="Enter Name"/>
         <input class="marginTop10 form-control" type="text" ng-model="editObject.phone" placeholder="Enter Number"/>
-        <div class="marginTop10 btn-group pull-right ">
+        <div class="marginTop10 btn-group pull-right">
             <button type="button" class="btn btn-default btn-sm" ng-click="saveContact(editObject)">Save</button>
             <button type="button" class="btn btn-default btn-sm" ng-click="goToContact()">Cancel</button>
         </div>

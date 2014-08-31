@@ -22,10 +22,11 @@ exports = module.exports = function(app, mongoose) {
                         if(err){
                             app.api.callback(err);
                         }
-                        else if(uniqueObject.length > 0){
-                            console.log("Contact Name already exists, Please select different Name - Log");
-                            app.api.callback("Contact Name already exists, Please select different Name");
-                        }else{
+//                        else if(uniqueObject.length > 0){
+//                            console.log("Contact Name already exists, Please select different Name - Log");
+//                            app.api.callback("Contact Name already exists, Please select different Name");
+//                        }
+                        else{
                             contactObject.name = req.body.name;
                             contactObject.phone = req.body.phone;
                             contactObject.save();
