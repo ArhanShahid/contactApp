@@ -38,10 +38,26 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         })
     };
 
+    /*============================================================*/
+
+    var _reqAddContact = function(contact,callback){
+        addContact.save({
+                userId:$rootScope.user.id
+            },
+            {
+                name:contact.name,
+                phone:contact.phone
+            },
+            function(res){
+                callback(res);
+            })
+    };
+
     return{
         reqLogIn:_reqLogIn,
         reqSignUp:_reqSignUp,
-        reqGetContact:_reqGetContact
+        reqGetContact:_reqGetContact,
+        'reqAddContact':_reqAddContact
     }
 
 });
