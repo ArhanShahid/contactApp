@@ -9,7 +9,6 @@ contactApp.controller('contactController',function($rootScope,$scope,$location,d
                 $scope.noContactSave = true;
                 dataService.setContacts(contacts);
                 $scope.contacts = dataService.getContacts();
-
             }else{
                 $scope.noContactSave = false;
             }
