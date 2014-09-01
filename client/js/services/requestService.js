@@ -41,6 +41,18 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
                 callback(res)
             });
     };
+    var _reqEditAccount = function (user,callback){
+        editAccount.save({
+                userId:$rootScope.user.id
+            },{
+                email:user.email,
+                dob:user.dob,
+                password:user.password
+            },
+            function(res){
+                callback(res)
+            })
+    };
 
 
     /*============================================================*/
@@ -90,6 +102,7 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         reqLogIn:_reqLogIn,
         reqSignUp:_reqSignUp,
         'reqChangePassword':_reqChangePassword,
+        'reqEditAccount':_reqEditAccount,
         reqGetContact:_reqGetContact,
         'reqAddContact':_reqAddContact,
         'reqEditContact':_reqEditContact,

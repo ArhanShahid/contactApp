@@ -1,3 +1,12 @@
-<div>
-    <h2>{{editAccount}}</h2>
+<div class="col-md-12">
+    <div class="well paddingBottom55">
+        <h3>{{editAccountHeading}}</h3>
+        <input class="marginTop10 form-control" type="email" ng-model="user.email" placeholder="Enter E-Mail" />
+        <input class="marginTop10 form-control" type="date" ng-model="user.dob" placeholder="Enter Date of Birth"/>
+        <input class="marginTop10 form-control" type="password" ng-model="user.password" placeholder="Enter Password" />
+        <div class="marginTop10 btn-group pull-right ">
+            <button type="button" class="btn btn-default btn-sm" ng-click="editAccount(user)">Save</button>
+            <button type="button" class="btn btn-default btn-sm" ng-click="goToContact()">Cancel</button>
+        </div>
+    </div>
 </div>
