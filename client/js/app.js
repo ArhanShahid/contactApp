@@ -32,6 +32,16 @@ contactApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/edit.html',
             controller:'editController'
         })
+        .state('editAccount',{
+            url:'/editAccount',
+            templateUrl: 'partials/editAccount.html',
+            controller:'editAccountController'
+        })
+        .state('changePassword',{
+            url:'/changePassword',
+            templateUrl: 'partials/changePassword.html',
+            controller:'changePasswordController'
+        })
 
 });
 
