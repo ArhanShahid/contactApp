@@ -4,8 +4,6 @@ contactApp.controller('addController',function($rootScope,$scope,$location,alert
 
         var contactValid = contact != undefined && contact.name && contact.phone;
         if(contactValid){
-//            console.log('contact');
-//            console.log(contact);
             requestService.reqAddContact(contact,function(responseObject){
                 if(responseObject.code==1 && responseObject.success == true){
                     alertService.show("Contact Added Successfully", "success");

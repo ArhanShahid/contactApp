@@ -29,6 +29,19 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
         });
     };
 
+    var _reqChangePassword = function(user,callback){
+        changePassword.save({
+                userId:$rootScope.user.id
+            },{
+                name:user.name,
+                password:user.password,
+                newPassword:user.newPassword
+            },
+            function(res){
+                callback(res)
+            });
+    };
+
 
     /*============================================================*/
 
@@ -76,10 +89,12 @@ contactApp.factory('requestService',function(ajaxService,$rootScope){
     return{
         reqLogIn:_reqLogIn,
         reqSignUp:_reqSignUp,
+        'reqChangePassword':_reqChangePassword,
         reqGetContact:_reqGetContact,
         'reqAddContact':_reqAddContact,
         'reqEditContact':_reqEditContact,
         'reqDeleteContact':_reqDeleteContact
+
     }
 
 });
