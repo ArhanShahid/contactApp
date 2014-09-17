@@ -1,9 +1,9 @@
 exports = module.exports = function(app) {
 
     // Use for development
-    app.set("mongodb-url",'localhost/contact');
+    //app.set("mongodb-url",'localhost/contact');
 
     // Use for production
-   // app.set("mongodb-url","mongodb://zeeshan:demodb@ds031978.mongolab.com:31978/panacloudgurudev");
+    app.set("mongodb-url","mongodb://arhanme:mearhan@ds035750.mongolab.com:35750/contactapp");
 
 }
